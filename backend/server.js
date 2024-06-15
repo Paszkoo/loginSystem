@@ -1,14 +1,25 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/user');
+const passwordsRoutes = require('./routes/passwords');
+const { encryptPassword, decryptPassword } = require('./encryption/encryption');
 require('dotenv').config()
 
 const app = express();
 
+let pass = "abcd!"
+console.log(pass);
+let crypted = encryptPassword(pass)
+console.log(crypted);
+let decrypted = decryptPassword(crypted);
+console.log(decrypted);
+
 // Middleware
 app.use(express.json());
+
 app.use('/api/user', userRoutes);
 
+app.use('/api/passwords', passwordsRoutes);
 
 const PORT = process.env.PORT || 5000;
 
