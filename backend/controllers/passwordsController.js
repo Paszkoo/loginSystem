@@ -30,6 +30,20 @@ const addNewPassword = async (req, res) => {
     }
 }
 
+const delPassword = async (req, res) => {
+    const { id } = req.body;
+
+    console.log("Haslo do usuniecia: ",id);
+    try{
+        const delPassword = await passwordModel.delOne(id);
+        res.status(200).json(delPassword);
+    }catch(err){
+        res.status(400).json({err: err.message});
+    }
+};
+
 module.exports = {
-    getAllPasswords
+    getAllPasswords,
+    delPassword,
+    addNewPassword
 }
