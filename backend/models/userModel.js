@@ -23,13 +23,13 @@ userSchema.statics.signup = async function(email, password) {
 
     //validation
     if( !email || !password ) {
-        throw Error("All fields must be filled");
+        throw Error("Wszystkie pola musza byc wypelnione");
     }
     if( !validator.isEmail(email) ){
-        throw Error("Email incorrect");
+        throw Error("Email niepoprawny");
     }
     if( !validator.isStrongPassword(password) ){
-        throw Error("Password is not strong enough");
+        throw Error("Haslo nie jest wystarczajaco silne");
     }
 
     const exists = await this.findOne({email: email});
@@ -47,22 +47,26 @@ userSchema.statics.signup = async function(email, password) {
 
 };
 
-//static login method
+    //static login method
 userSchema.statics.login = async function(email, password){
+        // uzytkownik nie podal hasla lub emaila
     if( !email || !password ) {
-        throw Error("All fields must be filled");
+        throw Error("Wszystkie pola musza byc wypelnione");
     }
 
     const user = await this.findOne({email});
 
+        // uzytkownik nie istnieje
     if(!user){
-        throw Error("User not found");
+        throw Error("Uzytkownik nie istnieje");
     }
 
+        // odszyfrowanie hasla i porwnanie do podanego od uzytkownika
     const match = await bcrypt.compare(password, user.password);
 
+        // jezeli haslo nie pasuje - blad
     if(!match){
-        throw Error("Wrong password");
+        throw Error("Zle haslo");
     }
 
     return user;

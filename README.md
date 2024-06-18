@@ -3,7 +3,7 @@ with JWT authentication and bcrypt password hashing
 
 # dependencies
 node,
-mongodb server with database named "loginSystem" and collection "users"
+mongodb server with database named "loginSystem" and collection "users" + "passwords"
 
 # installation
 run >npm i

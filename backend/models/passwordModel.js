@@ -28,8 +28,8 @@ const passwordSchema = new Schema({
 })
 
 passwordSchema.statics.getAll = async function(email){
-    const passwords = await this.find({ email: email});
-    console.log(passwords);
+    const passwords = await this.find({ owner: email});
+    console.log("Wysylam znalezione hasla do uzytkownika...");
     for( const p of passwords ){
         const dectrypt = await decryptPassword(p.password);
         p.password = dectrypt;

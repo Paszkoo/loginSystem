@@ -22,6 +22,7 @@ const getAllPasswords = async (req,res) => {
 
 const addNewPassword = async (req, res) => {
     const { owner, email, password, site } = req.body;
+    console.log(owner, email, password, site);
     try {
         const newPassword = await passwordModel.addNew(owner, email, password, site);
         res.status(200).json(newPassword);

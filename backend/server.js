@@ -7,12 +7,12 @@ require('dotenv').config()
 
 const app = express();
 
-let pass = "abcd!"
-console.log(pass);
-let crypted = encryptPassword(pass)
-console.log(crypted);
-let decrypted = decryptPassword(crypted);
-console.log(decrypted);
+// let pass = "abcd!"
+// console.log(pass);
+// let crypted = encryptPassword(pass)
+// console.log(crypted);
+// let decrypted = decryptPassword(crypted);
+// console.log(decrypted);
 
 // Middleware
 app.use(express.json());

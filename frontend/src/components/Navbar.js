@@ -11,6 +11,7 @@ const Navbar = () => {
 
     const handleClick = () => {
         logout();
+        navigate('/login');
     };
 
     useEffect(() => {
@@ -27,13 +28,12 @@ const Navbar = () => {
                         {user ? (
                             <>
                                 <li>{user.email}</li>
-                                <button onClick={handleClick}>Logout</button>
+                                <button onClick={handleClick} className='logout'>Wyloguj</button>
                             </>
                         ):(
                             <>
-                                <li><Link to='/home'>Home</Link></li>
                                 <li><Link to='/login'>Login</Link></li>
-                                <li><Link to='/signup'>Signup</Link></li>
+                                <li><Link to='/signup'>Rejestracja</Link></li>
                             </>
                         )}
                     </ul>

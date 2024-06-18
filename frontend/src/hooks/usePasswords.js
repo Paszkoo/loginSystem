@@ -7,26 +7,45 @@ export const usePassword = () => {
     const [isLoading, setIsLoading] = useState(null);
 
     const password = async (data) => {
-        setIsLoading(true);
-        setError(null);
-        const response = await fetch('api/passwords/delOne', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                id: data
+        if(user){
+            setIsLoading(true);
+            setError(null);
+            const response = await fetch('api/passwords/delOne', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${user.token}`
+                },
+                body: JSON.stringify({
+                    id: data
+                })
             })
-        })
 
-        const json = await response.json();
+            const json = await response.json();
 
-        if(!response.ok) {
-            setError(json.error);
-            setIsLoading(false);
-        }else{
-            console.log("usunieto obiekt z bazy")
+            if(!response.ok) {
+                setError(json.error);
+                setIsLoading(false);
+            }else{
+                console.log("usunieto obiekt z bazy")
+            }
         }
     }
-    return { password, isLoading, error };
+
+    const addPassword = async (data) => {
+        setIsLoading(true);
+        setError(null);
+        console.log(JSON.stringify(data))
+        const response = await fetch('api/passwords/newPassword', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
+            },
+            body: JSON.stringify(data)
+        })
+    };
+
+
+    return { password, addPassword, isLoading, error };
 }

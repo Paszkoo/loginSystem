@@ -1,3 +1,8 @@
+:root{
+  --input-width: 170px;
+}
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +10,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+  /* reset stylow button */
+body button, input{
+  all: unset;
 }
 
 code {
@@ -62,6 +71,22 @@ button {
   text-decoration: none;
 }
 
+.logout{
+  background-color: #61dafb;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
 button:hover {
   background-color: #21a1f1;
 }
@@ -90,7 +115,7 @@ form input:focus {
 .passContainer {
   display: flex;
   flex-direction: column;
-  width: 350px;
+  width: 50%;
   align-items: center;
   justify-content: center;
   margin-right: auto;
@@ -102,7 +127,7 @@ form input:focus {
 .passContainerBlue {
   display: flex;
   flex-direction: column;
-  width: 350px;
+  width: 50%;
   align-items: center;
   justify-content: center;
   margin-right: auto;
@@ -115,7 +140,6 @@ form input:focus {
   display: flex;
   flex-direction: column;
   width: 100%;
-
 }
 .passP {
   display: flex;
@@ -124,6 +148,7 @@ form input:focus {
   border-radius: 1em;
   align-items: center;
   justify-content: center;
+  width: var(--input-width);
 }
   .passP:hover{
     cursor: pointer;
@@ -133,7 +158,8 @@ form input:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-right: 5px;
+  margin-left: 15px;
+  margin-right: 10px;
 }
 .passLabelC{
   display: flex;
@@ -158,7 +184,7 @@ form input:focus {
   align-items: center;
   justify-content: center;
   border-bottom: 2px solid white;
-  padding: 10px 0;
+  padding: 10px 10px;
 }
 
 .passRow3 {
@@ -170,7 +196,7 @@ form input:focus {
   gap: 10px; /* Dodałem odstęp między przyciskami */
 }
 
-.modifyButton, .deleteButton, .addButton{
+.modifyButton, .deleteButton,  .passRow3 button{
   padding: 10px 20px;
   border-radius: 1rem;
   font-size: 14px;
@@ -188,39 +214,39 @@ form input:focus {
     border-radius: 1em;
     align-items: center;
     justify-content: center;
-    width: 80px;
+    width: var(--input-width);
 }
   .ADpassP:hover{
     cursor: pointer;
     border: 2px solid #0b74b5;
   }
 .modifyButton {
-  background-color: rgba(218, 187, 14, 0.8); /* Zielony kolor dla modyfikacji */
+  background-color: #000;
   color: white;
-  border: 1px solid rgba(218, 187, 14, 1);
+  border: 1px solid #FFFF00;
 }
 
 .modifyButton:hover {
-  background-color: #45a049; /* Trochę ciemniejszy zielony przy najechaniu */
+  background-color: #45a049;
 }
 
 .deleteButton {
   background-color: #f44336; /* Czerwony kolor dla usunięcia */
   color: white;
-  border: 1px solid #f44336;
+  border: 2px solid #f44336;
 }
 
 .deleteButton:hover {
   background-color: #d32f2f; /* Trochę ciemniejszy czerwony przy najechaniu */
 }
 .addButton {
-  background-color: rgba(103, 110, 216, 0.8); /* Zielony kolor dla modyfikacji */
+  background-color: #0b74b5; /* Zielony kolor dla modyfikacji */
   color: white;
-  border: 2px solid rgb(52, 157, 189);
+  border: 2px solid rgb(255, 255, 255);
 }
 .addButton:hover {
-  background-color: rgba(109, 115, 192, 0.8); /* Trochę ciemniejszy czerwony przy najechaniu */
-  border: 5px solid rgb(255, 255, 255);
+  background-color: rgba(63, 202, 63, 0.8); /* Trochę ciemniejszy czerwony przy najechaniu */
+  border: 2px solid rgb(255, 255, 255);
 }
 .errorNoPass{
   padding: 15px;
