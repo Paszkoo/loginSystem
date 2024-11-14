@@ -1,4 +1,4 @@
-# Login  and SignUp System JS MERN
+# Encrypted Password keeper JS MERN web application
 with JWT authentication and bcrypt password hashing
 
 ## secure levels
@@ -19,4 +19,4 @@ in both ./frontend and ./backend
 ## run
 run command:\
 ./frontend/npm start\
-./backend/npm start\
+./backend/node ./server.js
