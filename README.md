@@ -1,4 +1,4 @@
-# Login  and SignUp System based on MERN
+# Login  and SignUp System JS MERN
 with JWT authentication and bcrypt password hashing
 
 ## secure levels
